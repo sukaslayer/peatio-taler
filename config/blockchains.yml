@@ -1,0 +1,10 @@
+- key:               tlr-main
+  name:              Taler Mainnet
+  client:            taler                             # API client name.
+  server:            http://user:password@127.0.0.1:18332 # Public Taler node endpoint.
+  height:            1000000                               # Initial block number from which sync will be started.
+  min_confirmations: 3                                    # Minimal confirmations needed for withdraw and deposit confirmation.
+  explorer:
+    address:         https://explorer.talercrypto.com/address/LTCTEST/#{address}
+    transaction:     https://explorer.talercrypto.com/tx/LTCTEST/#{txid}
+  status:            active
