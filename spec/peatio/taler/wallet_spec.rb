@@ -8,7 +8,7 @@ RSpec.describe Peatio::Taler::Wallet do
     {
       wallet: { address: 'something',
                 uri:     uri },
-      currency: { id: :ltc,
+      currency: { id: :tlr,
                   base_factor: 100_000_000,
                   options: {} }
     }

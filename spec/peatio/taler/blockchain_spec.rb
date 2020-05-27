@@ -23,7 +23,7 @@ RSpec.describe Peatio::Taler::Blockchain do
     end
 
     it 'currencies and server configuration' do
-      currencies = [{ id: :ltc,
+      currencies = [{ id: :tlr,
                       base_factor: 100_000_000,
                       options: {} }]
       settings = { server: 'http://user:password@127.0.0.1:19332',
@@ -151,7 +151,7 @@ RSpec.describe Peatio::Taler::Blockchain do
       end
 
       let(:currency) do
-        { id: :ltc,
+        { id: :tlr,
           base_factor: 100_000_000,
           options: {} }
       end
@@ -167,13 +167,13 @@ RSpec.describe Peatio::Taler::Blockchain do
 
     context 'multiple currencies' do
       let(:currency1) do
-        { id: :ltc1,
+        { id: :tlr1,
           base_factor: 100_000_000,
           options: {} }
       end
 
       let(:currency2) do
-        { id: :ltc2,
+        { id: :tlr2,
           base_factor: 100_000_000,
           options: {} }
       end
@@ -230,7 +230,7 @@ RSpec.describe Peatio::Taler::Blockchain do
 
     context 'single vout transaction' do
       let(:currency) do
-        { id: :ltc,
+        { id: :tlr,
           base_factor: 100_000_000,
           options: {} }
       end
@@ -324,7 +324,7 @@ RSpec.describe Peatio::Taler::Blockchain do
     end
 
     let(:currency) do
-      { id: :ltc,
+      { id: :tlr,
         base_factor: 100_000_000,
         options: {} }
     end
@@ -379,7 +379,7 @@ RSpec.describe Peatio::Taler::Blockchain do
       it 'requests rpc listaddressgroupings and finds address balance' do
         address = 'QQggiZZSU1qTibRfK5RBgXSeBT71Ek7fLe'
 
-        result = blockchain.load_balance_of_address!(address, :ltc)
+        result = blockchain.load_balance_of_address!(address, :tlr)
         expect(result).to be_a(BigDecimal)
         expect(result).to eq('0.99983359'.to_d)
       end
@@ -387,7 +387,7 @@ RSpec.describe Peatio::Taler::Blockchain do
       it 'requests rpc listaddressgroupings and finds address with zero balance' do
         address = 'QRnrwkUBQ2E4ZJ3bj8jvn4Nwx4nJ2U7wXF'
 
-        result = blockchain.load_balance_of_address!(address, :ltc)
+        result = blockchain.load_balance_of_address!(address, :tlr)
         expect(result).to be_a(BigDecimal)
         expect(result).to eq('0'.to_d)
       end
@@ -396,7 +396,7 @@ RSpec.describe Peatio::Taler::Blockchain do
     context 'address is not defined' do
       it 'requests rpc listaddressgroupings and do not find address' do
         address = 'LLgJTbzZMsRTCUF1NtvvL9SR1a4pVieW89'
-        expect{ blockchain.load_balance_of_address!(address, :ltc)}.to raise_error(Peatio::Blockchain::UnavailableAddressBalanceError)
+        expect{ blockchain.load_balance_of_address!(address, :tlr)}.to raise_error(Peatio::Blockchain::UnavailableAddressBalanceError)
       end
     end
 
@@ -412,7 +412,7 @@ RSpec.describe Peatio::Taler::Blockchain do
       end
 
       it 'raise wrapped client error' do
-        expect{ blockchain.load_balance_of_address!('anything', :ltc)}.to raise_error(Peatio::Blockchain::ClientError)
+        expect{ blockchain.load_balance_of_address!('anything', :tlr)}.to raise_error(Peatio::Blockchain::ClientError)
       end
     end
   end

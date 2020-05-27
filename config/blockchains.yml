@@ -5,6 +5,6 @@
   height:            1000000                               # Initial block number from which sync will be started.
   min_confirmations: 3                                    # Minimal confirmations needed for withdraw and deposit confirmation.
   explorer:
-    address:         https://explorer.talercrypto.com/address/LTCTEST/#{address}
-    transaction:     https://explorer.talercrypto.com/tx/LTCTEST/#{txid}
+    address:         https://explorer.talercrypto.com/address/#{address}
+    transaction:     https://explorer.talercrypto.com/tx/#{txid}
   status:            active

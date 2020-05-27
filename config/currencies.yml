@@ -1,6 +1,6 @@
-- id:                     ltc
+- id:                     tlr
   name:                   Taler
-  blockchain_key:         ltc-testnet
+  blockchain_key:         tlr-mainnet
   symbol:                 'Ł'
   type:                   coin
   precision:              8

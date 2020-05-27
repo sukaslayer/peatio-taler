@@ -75,7 +75,7 @@ RSpec.describe Peatio::Taler::Client do
 
     context :connectionerror do
       before do
-        Faraday::Connection.any_instance.expects(:post).raises(Faraday::Error.new("Something went wrong")).once
+        Faraday::Connection.any_instance.expects(:post).raises(Faraday::Error).once
       end
 
       it do
